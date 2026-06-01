@@ -74,7 +74,16 @@ StyleCopReport.xml
 *_p.c
 *_h.h
 *.ilk
-*.meta
+# Unity 生成的文件 - 必须版本控制 .meta 文件以保证资产引用完整性
+# .meta files MUST be version controlled for Unity asset references
+# Library/ 和 Temp/ 是 Unity 缓存，无需版本控制
+Library/
+Temp/
+Logs/
+MemoryCaptures/
+[Bb]uild/
+[Bb]uilds/
+[Cc]onfig/[Pp]layer*
 *.obj
 *.iobj
 *.pch
