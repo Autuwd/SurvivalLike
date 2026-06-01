@@ -84,6 +84,9 @@ MemoryCaptures/
 [Bb]uild/
 [Bb]uilds/
 [Cc]onfig/[Pp]layer*
+UserSettings/
+*.csproj
+*.sln
 *.obj
 *.iobj
 *.pch
@@ -211,6 +214,9 @@ PublishScripts/
 !**/[Pp]ackages/build/
 # Uncomment if necessary however generally it will be regenerated when needed
 #!**/[Pp]ackages/repositories.config
+# Keep Unity package manifest files tracked (required for project dependencies)
+!Packages/manifest.json
+!Packages/packages-lock.json
 # NuGet v3's project.json files produces more ignorable files
 *.nuget.props
 *.nuget.targets
