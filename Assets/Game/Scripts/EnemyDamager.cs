@@ -13,6 +13,8 @@ public class EnemyDamager : MonoBehaviour
 
     public bool shouldKnockBack;
 
+    public bool destroyParent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +41,11 @@ public class EnemyDamager : MonoBehaviour
             if(transform.localScale.x == 0f)
             {
                 Destroy(gameObject);
+
+                if(destroyParent)
+                {
+                    Destroy(transform.parent.gameObject);
+                }
             }
         }
     }
@@ -46,6 +53,7 @@ public class EnemyDamager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //当碰撞到敌人标签时使其受伤2并击退
         if(collision.tag == "Enemy")
         {
             collision.GetComponent<EnemyController>().TakeDamage(damageAmount, shouldKnockBack);

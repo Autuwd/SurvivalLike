@@ -23,7 +23,9 @@ public class DamageNumber : MonoBehaviour
 
             if (lifeCounter <= 0)
             {
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                //将当前对象放回对象池中
+                DamageNumberController.instance.PlaceInPool(this);
             }
         }
 
@@ -32,10 +34,12 @@ public class DamageNumber : MonoBehaviour
         //    Setup(27);
         //}
         
+        //伤害数字动效
         transform.position += Vector3.up * floatSpeed * Time.deltaTime;
     }
 
 
+    //更新值
     public void Setup(int damageDisplay)
     {
         lifeCounter = lifeTime;
