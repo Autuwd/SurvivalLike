@@ -5489,6 +5489,55 @@ Canvas:
   m_SortingLayerID: -2041468795
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &437060891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 437060893}
+  - component: {fileID: 437060892}
+  m_Layer: 0
+  m_Name: ExperienceLevelController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &437060892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437060891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8577a2bb212f1f40ad0a3c5dad59a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentExperience: 0
+  pickup: {fileID: 1176527439945528724, guid: 93c5aad04c2fbc648b20076eea6e934b, type: 3}
+  expLevels: 0000000005000000080000000b0000000f000000
+  currentLevel: 1
+  levelCount: 100
+--- !u!4 &437060893
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437060891}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &452346872
 GameObject:
   m_ObjectHideFlags: 0
@@ -5782,6 +5831,7 @@ GameObject:
   - component: {fileID: 875090694}
   - component: {fileID: 875090695}
   - component: {fileID: 875090696}
+  - component: {fileID: 875090697}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5803,6 +5853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   animator: {fileID: 875090694}
+  pickupRange: 1
 --- !u!4 &875090693
 Transform:
   m_ObjectHideFlags: 0
@@ -5892,6 +5943,33 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 100
   healthSlider: {fileID: 184373335}
+--- !u!50 &875090697
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875090691}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &880818977
 GameObject:
   m_ObjectHideFlags: 0
@@ -6025,23 +6103,23 @@ MonoBehaviour:
   maxSpawnPoint: {fileID: 538537748}
   checkPerFrame: 30
   waves:
-  - enemyToSpawn: {fileID: 4800247100693760051, guid: 6cccfca590be42d46b33d6bf0c5953fd, type: 3}
-    waveLength: 10
+  - enemyToSpawn: {fileID: 4800247100693760051, guid: b16836fc653f8094c9c524e943909253, type: 3}
+    waveLength: 30
     timeBetweenSpawns: 0.5
   - enemyToSpawn: {fileID: 2374968314075200635, guid: 4b5309a9a08d3ad409d8f8fc8d48a910, type: 3}
-    waveLength: 10
+    waveLength: 30
     timeBetweenSpawns: 0.5
   - enemyToSpawn: {fileID: 632875929793008278, guid: 3f5e4b953e2925c4489c273934654fba, type: 3}
-    waveLength: 10
+    waveLength: 30
     timeBetweenSpawns: 0.5
   - enemyToSpawn: {fileID: 701208809953464889, guid: 882558e6b6dccd9408d2065708de90d5, type: 3}
-    waveLength: 10
+    waveLength: 30
     timeBetweenSpawns: 0.25
   - enemyToSpawn: {fileID: 4812508012517157082, guid: 745e509aa8c892d4683c740717a7358a, type: 3}
-    waveLength: 10
+    waveLength: 30
     timeBetweenSpawns: 0.25
   - enemyToSpawn: {fileID: 4331743489720878787, guid: d847c9ef72c7228459d629da71800993, type: 3}
-    waveLength: 10
+    waveLength: 30
     timeBetweenSpawns: 0.25
 --- !u!1 &1085459370
 GameObject:
@@ -6225,7 +6303,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -957490037
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -1714587360, guid: 99f10abcf979e904b883da0c6922d74f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -224842,7 +224920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7df403d2b9d072345969bf00dbbe4839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 3
+  damageAmount: 5
   lifeTime: 3
   growSpeed: 5
   shouldKnockBack: 1
@@ -224857,3 +224935,4 @@ SceneRoots:
   - {fileID: 711106528}
   - {fileID: 1023277799}
   - {fileID: 1984593234}
+  - {fileID: 437060893}

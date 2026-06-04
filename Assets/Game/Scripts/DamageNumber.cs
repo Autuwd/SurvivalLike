@@ -16,7 +16,7 @@ public class DamageNumber : MonoBehaviour
     void Update()
     {
 
-
+        
         if (lifeCounter > 0)
         {
             lifeCounter -= Time.deltaTime;
