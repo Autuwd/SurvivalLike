@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5152213471001497196}
-  - component: {fileID: 7332487590834496120}
   - component: {fileID: 2221920931383869768}
   - component: {fileID: 7982302972914420801}
   - component: {fileID: 3941927903664599892}
+  - component: {fileID: 7332487590834496120}
   m_Layer: 0
   m_Name: Enemy6_GoldenDragon
   m_TagString: Enemy
@@ -36,24 +36,6 @@ Transform:
   - {fileID: 2188710478949000793}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7332487590834496120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4331743489720878787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28a1f66bb15998b458a329ed8222796d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidbody2d: {fileID: 7982302972914420801}
-  moveSpeed: 1.2
-  damage: 15
-  hitWaitTime: 1
-  health: 30
-  knockBackTime: 0.5
 --- !u!58 &2221920931383869768
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -132,6 +114,25 @@ MonoBehaviour:
   speed: 0.7
   minSize: 0.9
   maxSize: 1.1
+--- !u!114 &7332487590834496120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331743489720878787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a1f66bb15998b458a329ed8222796d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbody2d: {fileID: 7982302972914420801}
+  moveSpeed: 1.2
+  damage: 15
+  hitWaitTime: 1
+  health: 30
+  knockBackTime: 0.5
+  expToGive: 24
 --- !u!1 &6056295165535846233
 GameObject:
   m_ObjectHideFlags: 0

@@ -45,6 +45,9 @@ public class ExperienceLevelController : MonoBehaviour
         {
             LevelUp();
         }
+
+        //更新UI显示
+        UIController.instance.UpdateExperience(currentExperience, expLevels[currentLevel], currentLevel);
     }
 
     //生成经验球并设置经验值
@@ -63,5 +66,7 @@ public class ExperienceLevelController : MonoBehaviour
         {
             currentLevel = expLevels.Count - 1;
         }
+
+        PlayerController.instance.activeWeapon.LevelUp();
     }
 }

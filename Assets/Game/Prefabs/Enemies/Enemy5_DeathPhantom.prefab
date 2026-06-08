@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5772873559650552833}
-  - component: {fileID: 3009253011103692529}
   - component: {fileID: 4959807709359234314}
   - component: {fileID: 8031698425051499400}
   - component: {fileID: 1315852890763634676}
+  - component: {fileID: 3009253011103692529}
   m_Layer: 0
   m_Name: Enemy5_DeathPhantom
   m_TagString: Enemy
@@ -36,24 +36,6 @@ Transform:
   - {fileID: 4170967072444337211}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3009253011103692529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4812508012517157082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28a1f66bb15998b458a329ed8222796d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidbody2d: {fileID: 8031698425051499400}
-  moveSpeed: 1.5
-  damage: 10
-  hitWaitTime: 1
-  health: 20
-  knockBackTime: 0.5
 --- !u!58 &4959807709359234314
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -132,6 +114,25 @@ MonoBehaviour:
   speed: 0.7
   minSize: 0.9
   maxSize: 1.1
+--- !u!114 &3009253011103692529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4812508012517157082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a1f66bb15998b458a329ed8222796d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbody2d: {fileID: 8031698425051499400}
+  moveSpeed: 1.5
+  damage: 10
+  hitWaitTime: 1
+  health: 20
+  knockBackTime: 0.5
+  expToGive: 20
 --- !u!1 &6886500340236934627
 GameObject:
   m_ObjectHideFlags: 0

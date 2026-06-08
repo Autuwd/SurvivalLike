@@ -93,10 +93,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8894672964140800482}
-  - component: {fileID: 8784310274525388409}
   - component: {fileID: 4549665228157782884}
   - component: {fileID: 4829946436846481726}
   - component: {fileID: 1596375614008975138}
+  - component: {fileID: 8784310274525388409}
   m_Layer: 0
   m_Name: Enemy1_GreenBee
   m_TagString: Enemy
@@ -120,25 +120,6 @@ Transform:
   - {fileID: 8644420980915045894}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8784310274525388409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4800247100693760051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28a1f66bb15998b458a329ed8222796d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidbody2d: {fileID: 4829946436846481726}
-  moveSpeed: 1
-  damage: 5
-  hitWaitTime: 1
-  health: 5
-  knockBackTime: 0.5
-  expToGive: 10
 --- !u!58 &4549665228157782884
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -217,3 +198,22 @@ MonoBehaviour:
   speed: 0.7
   minSize: 0.9
   maxSize: 1.1
+--- !u!114 &8784310274525388409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800247100693760051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a1f66bb15998b458a329ed8222796d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbody2d: {fileID: 4829946436846481726}
+  moveSpeed: 1
+  damage: 5
+  hitWaitTime: 1
+  health: 5
+  knockBackTime: 0.5
+  expToGive: 3

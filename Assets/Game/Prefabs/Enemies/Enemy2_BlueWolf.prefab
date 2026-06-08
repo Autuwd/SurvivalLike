@@ -93,10 +93,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5861599291149453802}
-  - component: {fileID: 4680383758006340923}
   - component: {fileID: 8763809875253912102}
   - component: {fileID: 9044446784695721712}
   - component: {fileID: 6656251936964974753}
+  - component: {fileID: 4680383758006340923}
   m_Layer: 0
   m_Name: Enemy2_BlueWolf
   m_TagString: Enemy
@@ -120,24 +120,6 @@ Transform:
   - {fileID: 6803356111664604074}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4680383758006340923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2374968314075200635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28a1f66bb15998b458a329ed8222796d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidbody2d: {fileID: 9044446784695721712}
-  moveSpeed: 1.2
-  damage: 7
-  hitWaitTime: 1
-  health: 10
-  knockBackTime: 0.5
 --- !u!58 &8763809875253912102
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -216,3 +198,22 @@ MonoBehaviour:
   speed: 0.7
   minSize: 0.9
   maxSize: 1.1
+--- !u!114 &4680383758006340923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2374968314075200635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a1f66bb15998b458a329ed8222796d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbody2d: {fileID: 9044446784695721712}
+  moveSpeed: 1.2
+  damage: 7
+  hitWaitTime: 1
+  health: 10
+  knockBackTime: 0.5
+  expToGive: 5

@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
+    private void Awake()
+    {
+        instance = this;
+    }
+
     public float moveSpeed;
 
     public Animator animator;
@@ -11,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public float pickupRange = 1.5f;
 
     private SpriteRenderer sr;
+
+    public Weapon activeWeapon;
 
 
     // Start is called before the first frame update
