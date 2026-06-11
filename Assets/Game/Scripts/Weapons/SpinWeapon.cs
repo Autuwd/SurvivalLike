@@ -18,7 +18,7 @@ public class SpinWeapon : Weapon
         SetStats();
 
         //更新升级按钮显示
-        UIController.instance.levelUpButtons[0].UpdateButtonDisplay(this);
+        //UIController.instance.levelUpButtons[0].UpdateButtonDisplay(this);
     }
 
     // Update is called once per frame

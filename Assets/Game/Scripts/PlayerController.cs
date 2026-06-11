@@ -18,13 +18,20 @@ public class PlayerController : MonoBehaviour
 
     private SpriteRenderer sr;
 
-    public Weapon activeWeapon;
+    //public Weapon activeWeapon;
+
+    public List<Weapon> unassignedWeapons;
+    public List<Weapon> assignedWeapons;
+
+    public int maxWeapons = 3;
 
 
     // Start is called before the first frame update
     void Start()
     {
         sr = transform.Find("Sprite").GetComponent<SpriteRenderer>();
+        
+        AddWeapon(Random.Range(0, unassignedWeapons.Count));
     }
 
     // Update is called once per frame
@@ -56,5 +63,26 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("isMoving", false);
         }
+    }
+
+    //按索引取出武器
+    public void AddWeapon(int weaponNumber)
+    {
+        if (weaponNumber < unassignedWeapons.Count)
+        {
+            assignedWeapons.Add(unassignedWeapons[weaponNumber]);
+
+            unassignedWeapons[weaponNumber].gameObject.SetActive(true);
+            unassignedWeapons.RemoveAt(weaponNumber);
+        }
+    }
+
+    //直接接收武器对象
+    public void AddWeapon(Weapon weaponToAdd)
+    {
+        weaponToAdd.gameObject.SetActive(true);
+
+        assignedWeapons.Add(weaponToAdd);
+        unassignedWeapons.Remove(weaponToAdd);
     }
 }

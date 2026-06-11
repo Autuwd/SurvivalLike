@@ -18,6 +18,8 @@ public class UIController : MonoBehaviour
 
     public LevelUpSelectionButton[] levelUpButtons;
 
+    public GameObject levelUpPanel;
+
     // Start is called before the first frame update
     void Start()
     {
