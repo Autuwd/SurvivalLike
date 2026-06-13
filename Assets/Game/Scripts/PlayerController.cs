@@ -25,13 +25,21 @@ public class PlayerController : MonoBehaviour
 
     public int maxWeapons = 3;
 
+    [HideInInspector]
+    public List<Weapon> fullyLevelledWeapons = new List<Weapon>();
+
 
     // Start is called before the first frame update
     void Start()
     {
         sr = transform.Find("Sprite").GetComponent<SpriteRenderer>();
         
-        AddWeapon(Random.Range(0, unassignedWeapons.Count));
+        //如果当前没有武器，则从未分配武器中选一个
+        if(assignedWeapons.Count == 0)
+        {
+            AddWeapon(Random.Range(0, unassignedWeapons.Count));
+        }
+
     }
 
     // Update is called once per frame

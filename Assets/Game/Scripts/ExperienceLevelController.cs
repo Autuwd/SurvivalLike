@@ -81,24 +81,28 @@ public class ExperienceLevelController : MonoBehaviour
         //UIController.instance.levelUpButtons[1].UpdateButtonDisplay(PlayerController.instance.unassignedWeapons[0]);
         //UIController.instance.levelUpButtons[2].UpdateButtonDisplay(PlayerController.instance.unassignedWeapons[1]);
 
-
+        //清空列表
         weaponsToUpgrade.Clear();
 
+        //从已装备武器中选一个
         List<Weapon> availableWeapon = new List<Weapon>();
         availableWeapon.AddRange(PlayerController.instance.assignedWeapons);
 
+        
         if(availableWeapon.Count > 0 )
         {
             int selected = Random.Range(0, availableWeapon.Count);
             weaponsToUpgrade.Add(availableWeapon[selected]);
             availableWeapon.RemoveAt(selected);
         }
-
+        
+        //如果武器槽未满，将未装备武器加入候选池
         if(PlayerController.instance.assignedWeapons.Count < PlayerController.instance.maxWeapons)
         {
             availableWeapon.AddRange(PlayerController.instance.unassignedWeapons);
         }
 
+        //填充武器升级列表
         for(int i = weaponsToUpgrade.Count; i < 3; i++)
         {
             if(availableWeapon.Count > 0)
@@ -109,9 +113,23 @@ public class ExperienceLevelController : MonoBehaviour
             }
         }
 
+        //更新升级按钮UI
         for(int i = 0; i < weaponsToUpgrade.Count; i++)
         {
             UIController.instance.levelUpButtons[i].UpdateButtonDisplay(weaponsToUpgrade[i]);
+        }
+
+        //遍历升级按钮数组
+        for (int i = 0; i < UIController.instance.levelUpButtons.Length; i++)
+        {
+            if(i < weaponsToUpgrade.Count)
+            {
+                UIController.instance.levelUpButtons[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                UIController.instance.levelUpButtons[i].gameObject.SetActive(false);
+            }
         }
     }
 }

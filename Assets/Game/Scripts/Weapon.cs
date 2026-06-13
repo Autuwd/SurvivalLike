@@ -20,6 +20,13 @@ public class Weapon : MonoBehaviour
             weaponLevel++;
 
             statsUpdated = true;
+
+            //当前武器等级升满后，将组件移到满级武器列表里
+            if(weaponLevel >=  stats.Count -1)
+            {
+                PlayerController.instance.fullyLevelledWeapons.Add(this);
+                PlayerController.instance.assignedWeapons.Remove(this);
+            }
         }
     }
 }

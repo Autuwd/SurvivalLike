@@ -33,7 +33,15 @@ public class SpinWeapon : Weapon
         {
             spawnCounter = timeBetweenSpawn;
 
-            Instantiate(fireballToSpawn, fireballToSpawn.position, fireballToSpawn.rotation, holder).gameObject.SetActive(true);
+            //Instantiate(fireballToSpawn, fireballToSpawn.position, fireballToSpawn.rotation, holder).gameObject.SetActive(true);
+
+            //根据生成武器的数量，在指定位置生成火球
+            for (int i = 0; i < stats[weaponLevel].amount; i++)
+            {
+                float rot = (360 / stats[weaponLevel].amount) * i;
+
+                Instantiate(fireballToSpawn, fireballToSpawn.position, Quaternion.Euler(0f, 0f, rot), holder).gameObject.SetActive(true);
+            }
         }
 
         //升级进行属性改变

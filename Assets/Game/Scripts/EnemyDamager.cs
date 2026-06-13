@@ -15,6 +15,13 @@ public class EnemyDamager : MonoBehaviour
 
     public bool destroyParent;
 
+    public bool damageOverTime;
+    public float timeBetweenDamage;
+    private float damageCounter;
+
+    private List<EnemyController> enemiesInRange = new List<EnemyController>();
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,15 +55,59 @@ public class EnemyDamager : MonoBehaviour
                 }
             }
         }
+
+        if(damageOverTime == true)
+        {
+            damageCounter -= Time.deltaTime;
+
+            if (damageCounter <= 0)
+            {
+                damageCounter = timeBetweenDamage;
+
+                for (int i = 0; i < enemiesInRange.Count; i++)
+                {
+                    if(enemiesInRange[i] != null )
+                    {
+                        enemiesInRange[i].TakeDamage(damageAmount, shouldKnockBack);
+                    }
+                    else
+                    {
+                        enemiesInRange.RemoveAt(i);
+                        i--;
+                    }
+                }
+            }
+        }
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //当碰撞到敌人标签时使其受伤2并击退
-        if(collision.tag == "Enemy")
+        if(damageOverTime == false)
         {
-            collision.GetComponent<EnemyController>().TakeDamage(damageAmount, shouldKnockBack);
+            //当碰撞到敌人标签时使其受伤2并击退
+            if (collision.tag == "Enemy")
+            {
+                collision.GetComponent<EnemyController>().TakeDamage(damageAmount, shouldKnockBack);
+            }
+        }
+        else
+        {
+            if(collision.tag == "Enemy")
+            {
+                enemiesInRange.Add(collision.GetComponent<EnemyController>());
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(damageOverTime == true)
+        {
+            if(collision.tag == "Enemy")
+            {
+                enemiesInRange.Remove(collision.GetComponent<EnemyController>());
+            }
         }
     }
 }
