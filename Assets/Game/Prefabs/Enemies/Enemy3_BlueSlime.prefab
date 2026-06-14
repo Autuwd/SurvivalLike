@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 4664073749971498077}
   - component: {fileID: 3044722891552379726}
   - component: {fileID: 3539489141660180360}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy3_BlueSlime
   m_TagString: Enemy
   m_Icon: {fileID: 0}

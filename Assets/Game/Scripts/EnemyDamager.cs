@@ -21,6 +21,8 @@ public class EnemyDamager : MonoBehaviour
 
     private List<EnemyController> enemiesInRange = new List<EnemyController>();
 
+    public bool destroyOnImpact;
+
 
     // Start is called before the first frame update
     void Start()
@@ -89,6 +91,11 @@ public class EnemyDamager : MonoBehaviour
             if (collision.tag == "Enemy")
             {
                 collision.GetComponent<EnemyController>().TakeDamage(damageAmount, shouldKnockBack);
+
+                if(destroyOnImpact == true)
+                {
+                    Destroy(this.gameObject);
+                }
             }
         }
         else
