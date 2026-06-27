@@ -20,6 +20,8 @@ public class UIController : MonoBehaviour
 
     public GameObject levelUpPanel;
 
+    public TMP_Text coinText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,13 +40,18 @@ public class UIController : MonoBehaviour
         expLevelSlider.maxValue = levelExp;
         expLevelSlider.value = currentExp;
 
-        expLevelText.text = "Level " + currentLevel;
+        expLevelText.text = "µÈ¼¶ " + currentLevel;
     }
 
     public void SkipLevelUp()
     {
         levelUpPanel.SetActive(false);
         Time.timeScale = 1.0f;
+    }
+
+    public void UpdateCoins()
+    {
+        coinText.text = "»Æ½ð: " + CoinController.instance.currentCoins;
     }
 
 }

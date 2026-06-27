@@ -22,6 +22,8 @@ public class EnemyController : MonoBehaviour
 
     public int expToGive = 1;
 
+    public int coinValue = 1;
+    public float coinDropRate = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -35,30 +37,37 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //进行击退
-        if (knockBackCounter > 0)
+        if(PlayerController.instance.gameObject.activeSelf == true)
         {
-            knockBackCounter -= Time.deltaTime;
-
-            if (moveSpeed > 0)
+            //进行击退
+            if (knockBackCounter > 0)
             {
-                moveSpeed = -moveSpeed * 2;
+                knockBackCounter -= Time.deltaTime;
+
+                if (moveSpeed > 0)
+                {
+                    moveSpeed = -moveSpeed * 2;
+                }
+
+                if (knockBackCounter <= 0)
+                {
+                    moveSpeed = Mathf.Abs(moveSpeed * 0.5f);
+                }
             }
 
-            if(knockBackCounter <=  0)
+
+            //怪物移动
+            rigidbody2d.velocity = (target.position - transform.position).normalized * moveSpeed;
+
+            //伤害暂停倒计时
+            if (hitWaitTime > 0f)
             {
-                moveSpeed = Mathf.Abs(moveSpeed * 0.5f);
+                hitCounter -= Time.deltaTime;
             }
         }
-
-
-        //怪物移动
-        rigidbody2d.velocity = (target.position - transform.position).normalized * moveSpeed;
-
-        //伤害暂停倒计时
-        if(hitWaitTime > 0f)
+        else
         {
-            hitCounter -= Time.deltaTime;
+            rigidbody2d.velocity = Vector2.zero;
         }
     }
 
@@ -84,6 +93,12 @@ public class EnemyController : MonoBehaviour
 
             //生成经验球
             ExperienceLevelController.instance.SpawnExp(transform.position, expToGive);
+
+            //随机生成金币
+            if(Random.value <= coinDropRate)
+            {
+                CoinController.instance.DropCoin(transform.position, coinValue);
+            }
         }
 
         DamageNumberController.instance.SpawnDamage(damageToTake, transform.position);

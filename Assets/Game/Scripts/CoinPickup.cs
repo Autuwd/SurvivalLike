@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExpPickup : MonoBehaviour
+public class CoinPickup : MonoBehaviour
 {
-    public int expValue;
+    public int coinAmount = 1;
 
     private bool movingToPlayer;
     public float moveSpeed;
@@ -17,7 +17,7 @@ public class ExpPickup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = PlayerController.instance.GetComponent<PlayerController>();
+        player = PlayerController.instance;
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class ExpPickup : MonoBehaviour
         else
         {
             checkCounter -= Time.deltaTime;
-            if(checkCounter <= 0)
+            if (checkCounter <= 0)
             {
                 checkCounter = timeBetweenChecks;
                 //如果玩家在范围内 修改标识并增加移动速度
@@ -44,13 +44,14 @@ public class ExpPickup : MonoBehaviour
         }
     }
 
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //碰撞器标签是Player时进行经验值获取和销毁当前经验球
         if (collision.tag == "Player")
         {
-            ExperienceLevelController.instance.GetExp(expValue);
+            CoinController.instance.AddCoins(coinAmount);
+
             Destroy(gameObject);
         }
     }
