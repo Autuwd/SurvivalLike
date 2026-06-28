@@ -35,6 +35,9 @@ public class WeaponThrower : Weapon
             {
                 Instantiate(damager, damager.transform.position, damager.transform.rotation).gameObject.SetActive(true);
             }
+
+            //≤•∑≈“Ù–ß
+            SFXManager.instance.PlaySFXPitched(4);
         }
     }
 

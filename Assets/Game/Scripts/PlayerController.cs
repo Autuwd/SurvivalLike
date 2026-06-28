@@ -40,6 +40,11 @@ public class PlayerController : MonoBehaviour
             AddWeapon(Random.Range(0, unassignedWeapons.Count));
         }
 
+
+        //初始化玩家属性
+        moveSpeed = PlayerStatController.instance.moveSpeed[0].value;
+        pickupRange = PlayerStatController.instance.pickupRange[0].value;
+        maxWeapons = Mathf.RoundToInt(PlayerStatController.instance.maxWeapons[0].value);
     }
 
     // Update is called once per frame

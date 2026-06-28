@@ -95,10 +95,18 @@ public class EnemyController : MonoBehaviour
             ExperienceLevelController.instance.SpawnExp(transform.position, expToGive);
 
             //随机生成金币
-            if(Random.value <= coinDropRate)
+            if (Random.value <= coinDropRate)
             {
                 CoinController.instance.DropCoin(transform.position, coinValue);
             }
+
+            //播放死亡音效
+            SFXManager.instance.PlaySFXPitched(0);
+        }
+        else
+        {
+            //播放受伤音效
+            SFXManager.instance.PlaySFXPitched(1);
         }
 
         DamageNumberController.instance.SpawnDamage(damageToTake, transform.position);

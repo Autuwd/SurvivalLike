@@ -12,7 +12,9 @@ public class Weapon : MonoBehaviour
 
     public Sprite icon;
 
-    //升级武器
+    public string displayName;
+
+    //鍗囩骇姝﹀櫒
     public void LevelUp()
     {
         if(weaponLevel < stats.Count -1)
@@ -21,7 +23,7 @@ public class Weapon : MonoBehaviour
 
             statsUpdated = true;
 
-            //当前武器等级升满后，将组件移到满级武器列表里
+            //褰撳墠姝﹀櫒绛夌骇鍗囨弧鍚庯紝灏嗙粍浠剁Щ鍒版弧绾ф鍣ㄥ垪琛ㄩ噷
             if(weaponLevel >=  stats.Count -1)
             {
                 PlayerController.instance.fullyLevelledWeapons.Add(this);

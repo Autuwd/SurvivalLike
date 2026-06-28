@@ -21,13 +21,23 @@ public class CoinController : MonoBehaviour
         currentCoins += coinToAdd;
 
         UIController.instance.UpdateCoins();
+
+        //播放音效
+        SFXManager.instance.PlaySFXPitched(2);
     }
 
-    //生成金币拾取物
+    //掉落金币
     public void DropCoin(Vector3 position, int value)
     {
         CoinPickup newCoin = Instantiate(coin, position + new Vector3(0.2f, 0.1f, 0f), Quaternion.identity);
         newCoin.coinAmount = value;
         newCoin.gameObject.SetActive(true);
+    }
+
+    //花费金币
+    public void SpendCoins(int coinsToSpend)
+    {
+        currentCoins -= coinsToSpend;
+        UIController.instance.UpdateCoins();
     }
 }

@@ -50,6 +50,9 @@ public class ExperienceLevelController : MonoBehaviour
 
         //更新UI显示
         UIController.instance.UpdateExperience(currentExperience, expLevels[currentLevel], currentLevel);
+
+        //播放音效
+        SFXManager.instance.PlaySFXPitched(2);
     }
 
     //生成经验球并设置经验值
@@ -131,5 +134,8 @@ public class ExperienceLevelController : MonoBehaviour
                 UIController.instance.levelUpButtons[i].gameObject.SetActive(false);
             }
         }
+
+        //更新金币购买按钮UI
+        PlayerStatController.instance.UpdateDisplay();
     }
 }
